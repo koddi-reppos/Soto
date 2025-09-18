@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="skin.soto" name="Soto" provider-name="Based on Arctic Zephyr 2 by jurialmunkey, pkscout, heppen" version="1.0.0">
+    <requires>
+        <import addon="xbmc.gui" version="5.17.0" />
+        <import addon="script.skinshortcuts"/>
+        <import addon="script.skinhelper" version="0.0.4" />
+        <import addon="script.skinvariables" version="2.1.28" />
+        <import addon="plugin.video.themoviedb.helper" version="5.5.11" />
+        <import addon="resource.images.studios.white"/>
+        <import addon="resource.images.moviegenreicons.transparent"/>
+        <import addon="resource.images.weathericons.white"/>
+        <import addon="resource.images.moviecountryicons.maps"/>
+    </requires>
+    <extension point="xbmc.gui.skin" debugging="false">
+                <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
+        </extension>
+    <extension point="xbmc.addon.metadata">
+        <news></news>
+        <summary lang="de">Klar, minimalistisch, elegant, einfach, leicht</summary>
+        <summary lang="en">Premium Netflix-style player with AMOLED dark theme and adaptive covers.</summary>
+        <summary lang="en_AU">Premium Netflix-style player with AMOLED dark theme and adaptive covers.</summary>
+        <summary lang="en_US">Premium Netflix-style player with AMOLED dark theme and adaptive covers.</summary>
+        <summary lang="es">Reproductor premium estilo Netflix con tema negro AMOLED y carátulas adaptables.</summary>
+        <summary lang="fr">Clair, minimaliste, élégant, simple et léger.</summary>
+        <summary lang="fr_CA">Net, minimal, élégant, simple, léger.</summary>
+        <summary lang="it">Pulita, minimale, elegante, semplice, leggera.</summary>
+        <summary lang="lt">Švari, minimali, elegantiška, paprasta, lengva.</summary>
+        <summary lang="nl">Schoon, minimaal, elegant, simpel, licht.</summary>
+        <summary lang="no">Rent, minimalt, elegant, enkelt, lett.</summary>
+        <summary lang="pl">Prosta, minimalistyczna, elegancka i lekka.</summary>
+        <summary lang="pt_BR">Limpa, simplista, elegante, leve.</summary>
+        <summary lang="ro">Curat, minimalist, elegant, simplu, ușor</summary>
+        <summary lang="ru">Опрятный, минималистичный, элегантный, простой, светлый.</summary>
+
+        <description lang="en">Soto is a premium media center skin featuring a Netflix-style video player, AMOLED pure black theme, and adaptive cover artwork. Based on Arctic Zephyr 2, Soto focuses on providing a modern streaming experience with professional-grade visuals and intuitive controls.</description>
+        <description lang="pl">Jest to modyfikacja skórki Arctic Zephyr 2 autorstwa heppen. Arctic Zephyr 2 jest minimalistyczną skórką stworzoną przez jurialmunkey i zmodowaną do pracy z Kodi 19 Matrix przez pkscout. Skórka została zaprojektowana jako prosta, aby użytkownik mógł skupić się na swojej zawartości multimedialnej. Oprócz domyślnego jasnego schematu kolorów, skórka zawiera również kilka ciemniejszych wariantów.</description>
+        <platform>all</platform>
+        <license>Creative Commons Attribution Non-Commercial Share-Alike 4.0</license>
+        <forum>https://forum.kodi.tv/showthread.php?tid=362941</forum>
+        <source>https://github.com/soto-skin/skin.soto</source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <screenshot>resources/screenshot-01.jpg</screenshot>
+            <screenshot>resources/screenshot-02.jpg</screenshot>
+            <screenshot>resources/screenshot-03.jpg</screenshot>
+            <screenshot>resources/screenshot-04.jpg</screenshot>
+            <screenshot>resources/screenshot-05.jpg</screenshot>
+            <screenshot>resources/screenshot-06.jpg</screenshot>
+        </assets>
+    </extension>
+</addon>

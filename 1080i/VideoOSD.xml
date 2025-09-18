@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Soto Netflix-Style Video OSD -->
+<window id="2901">
+    <onload condition="!Player.PauseEnabled">SetFocus(200)</onload>
+    <onload condition="Player.PauseEnabled">SetFocus(100)</onload>
+    <onunload>ClearProperty(OSDInfo,Home)</onunload>
+    <onunload>CancelAlarm(osd_timeout,true)</onunload>
+    
+    <controls>
+        <!-- Background overlay -->
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>100%</height>
+            <texture colordiffuse="CC000000">common/white.png</texture>
+            <visible>true</visible>
+        </control>
+
+        <!-- Close area (top part) -->
+        <control type="button">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>750</height>
+            <texturefocus />
+            <texturenofocus />
+            <onclick>Action(close)</onclick>
+        </control>
+
+        <!-- Main OSD Group -->
+        <control type="group">
+            <visible>!Window.IsVisible(DialogPlayerProcessInfo.xml)</visible>
+            <bottom>0</bottom>
+            <height>330</height>
+            <width>100%</width>
+            
+            <!-- Background for OSD -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>100%</width>
+                <height>100%</height>
+                <texture colordiffuse="FF000000">common/white.png</texture>
+            </control>
+
+            <!-- Progress Bar Background -->
+            <control type="image">
+                <left>60</left>
+                <right>60</right>
+                <top>30</top>
+                <height>8</height>
+                <texture colordiffuse="FF333333">common/white.png</texture>
+            </control>
+
+            <!-- Progress Bar -->
+            <control type="progress">
+                <left>60</left>
+                <right>60</right>
+                <top>30</top>
+                <height>8</height>
+                <info>Player.Progress</info>
+                <texturebg />
+                <lefttexture colordiffuse="FFE50914">common/white.png</lefttexture>
+                <midtexture colordiffuse="FFE50914">common/white.png</midtexture>
+                <righttexture />
+                <reveal>true</reveal>
+            </control>
+
+            <!-- Seek bar (invisible but functional) -->
+            <control type="slider" id="6501">
+                <left>60</left>
+                <right>60</right>
+                <top>26</top>
+                <height>16</height>
+                <info>Player.Progress</info>
+                <action>seek</action>
+                <texturesliderbar />
+                <textureslidernib />
+                <textureslidernibfocus />
+            </control>
+
+            <!-- Time Info -->
+            <control type="group">
+                <left>60</left>
+                <right>60</right>
+                <top>50</top>
+                <height>40</height>
+                
+                <!-- Current Time -->
+                <control type="label">
+                    <left>0</left>
+                    <width>150</width>
+                    <height>40</height>
+                    <font>font_small</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <label>$INFO[Player.Time]</label>
+                    <aligny>center</aligny>
+                </control>
+                
+                <!-- Total Duration -->
+                <control type="label">
+                    <right>0</right>
+                    <width>150</width>
+                    <height>40</height>
+                    <font>font_small</font>
+                    <textcolor>FFCCCCCC</textcolor>
+                    <label>$INFO[Player.Duration]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                </control>
+            </control>
+
+            <!-- Main Controls Row -->
+            <control type="grouplist">
+                <left>60</left>
+                <right>60</right>
+                <top>110</top>
+                <height>120</height>
+                <orientation>horizontal</orientation>
+                <itemgap>40</itemgap>
+                <align>center</align>
+                
+                <!-- Previous/Rewind Button -->
+                <control type="button" id="50">
+                    <width>80</width>
+                    <height>80</height>
+                    <texturefocus colordiffuse="FFFFFFFF">osd/rewind_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FFCCCCCC">osd/rewind.png</texturenofocus>
+                    <onclick>PlayerControl(Rewind)</onclick>
+                    <onleft>400</onleft>
+                    <onright>100</onright>
+                    <onup>6501</onup>
+                    <ondown>300</ondown>
+                </control>
+
+                <!-- Play/Pause Button (Large) -->
+                <control type="button" id="100">
+                    <width>120</width>
+                    <height>120</height>
+                    <texturefocus condition="!Player.Paused" colordiffuse="FFFFFFFF">osd/pause_focus.png</texturefocus>
+                    <texturenofocus condition="!Player.Paused" colordiffuse="FFCCCCCC">osd/pause.png</texturenofocus>
+                    <texturefocus condition="Player.Paused" colordiffuse="FFFFFFFF">osd/play_focus.png</texturefocus>
+                    <texturenofocus condition="Player.Paused" colordiffuse="FFCCCCCC">osd/play.png</texturenofocus>
+                    <onclick>PlayerControl(PlayPause)</onclick>
+                    <onleft>50</onleft>
+                    <onright>200</onright>
+                    <onup>6501</onup>
+                    <ondown>310</ondown>
+                </control>
+
+                <!-- Next/Forward Button -->
+                <control type="button" id="200">
+                    <width>80</width>
+                    <height>80</height>
+                    <texturefocus colordiffuse="FFFFFFFF">osd/forward_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FFCCCCCC">osd/forward.png</texturenofocus>
+                    <onclick>PlayerControl(Forward)</onclick>
+                    <onleft>100</onleft>
+                    <onright>300</onright>
+                    <onup>6501</onup>
+                    <ondown>320</ondown>
+                </control>
+
+                <!-- Volume Button -->
+                <control type="button" id="300">
+                    <width>60</width>
+                    <height>60</height>
+                    <texturefocus colordiffuse="FFFFFFFF">osd/volume_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FFCCCCCC">osd/volume.png</texturenofocus>
+                    <onclick>ActivateWindow(DialogVolumeBar)</onclick>
+                    <onleft>200</onleft>
+                    <onright>400</onright>
+                    <onup>50</onup>
+                    <ondown>330</ondown>
+                </control>
+
+                <!-- Audio Settings Button -->
+                <control type="button" id="400">
+                    <width>60</width>
+                    <height>60</height>
+                    <texturefocus colordiffuse="FFFFFFFF">osd/audio_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FFCCCCCC">osd/audio.png</texturenofocus>
+                    <onclick>ActivateWindow(DialogSettings)</onclick>
+                    <onleft>300</onleft>
+                    <onright>500</onright>
+                    <onup>100</onup>
+                    <ondown>340</ondown>
+                </control>
+
+                <!-- Subtitles Button -->
+                <control type="button" id="500">
+                    <width>60</width>
+                    <height>60</height>
+                    <texturefocus colordiffuse="FFFFFFFF">osd/subtitles_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FFCCCCCC">osd/subtitles.png</texturenofocus>
+                    <onclick>ActivateWindow(DialogSubtitles)</onclick>
+                    <onleft>400</onleft>
+                    <onright>600</onright>
+                    <onup>200</onup>
+                    <ondown>350</ondown>
+                </control>
+
+                <!-- Info Button -->
+                <control type="button" id="600">
+                    <width>60</width>
+                    <height>60</height>
+                    <texturefocus colordiffuse="FFFFFFFF">osd/info_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FFCCCCCC">osd/info.png</texturenofocus>
+                    <onclick>ActivateWindow(DialogVideoInfo)</onclick>
+                    <onleft>500</onleft>
+                    <onright>50</onright>
+                    <onup>300</onup>
+                    <ondown>360</ondown>
+                </control>
+            </control>
+
+            <!-- Movie/Episode Info -->
+            <control type="group">
+                <left>60</left>
+                <right>60</right>
+                <top>250</top>
+                <height>60</height>
+                
+                <!-- Title -->
+                <control type="label">
+                    <left>0</left>
+                    <width>70%</width>
+                    <height>30</height>
+                    <font>font_medium</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <label>$INFO[VideoPlayer.Title]</label>
+                    <scroll>true</scroll>
+                </control>
+                
+                <!-- Episode/Season Info -->
+                <control type="label">
+                    <left>0</left>
+                    <top>30</top>
+                    <width>70%</width>
+                    <height>30</height>
+                    <font>font_small</font>
+                    <textcolor>FFCCCCCC</textcolor>
+                    <label>$INFO[VideoPlayer.Season,$LOCALIZE[20373] ,[COLOR FFCCCCCC] • [/COLOR]]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]</label>
+                    <visible>!String.IsEmpty(VideoPlayer.Season)</visible>
+                </control>
+                
+                <!-- Movie Year/Rating -->
+                <control type="label">
+                    <left>0</left>
+                    <top>30</top>
+                    <width>70%</width>
+                    <height>30</height>
+                    <font>font_small</font>
+                    <textcolor>FFCCCCCC</textcolor>
+                    <label>$INFO[VideoPlayer.Year][COLOR FFCCCCCC] • [/COLOR]$INFO[VideoPlayer.Rating]</label>
+                    <visible>String.IsEmpty(VideoPlayer.Season)</visible>
+                </control>
+            </control>
+        </control>
+
+        <!-- Animations -->
+        <animation effect="slide" start="0,330" end="0,0" time="300" tween="cubic" easing="out">WindowOpen</animation>
+        <animation effect="slide" start="0,0" end="0,330" time="300" tween="cubic" easing="in">WindowClose</animation>
+        <animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+        <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+    </controls>
+</window>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colors>
+    <!-- SOTO AMOLED Theme - Pure Black with Premium Accents -->
+    
+    <!-- Main Background Colors -->
+    <color name="main_bg_100">FF000000</color>           <!-- Pure Black AMOLED -->
+    <color name="main_bg_90">FF0A0A0A</color>            <!-- Nearly Black -->
+    <color name="main_bg_80">FF111111</color>            <!-- Dark Grey -->
+    <color name="main_bg_70">FF1A1A1A</color>            <!-- Lighter Dark Grey -->
+    <color name="main_bg_60">FF222222</color>            <!-- Medium Dark Grey -->
+    <color name="main_bg_50">FF333333</color>            <!-- Medium Grey -->
+    <color name="main_bg_40">FF444444</color>            <!-- Light Grey -->
+    <color name="main_bg_30">FF555555</color>            <!-- Lighter Grey -->
+    <color name="main_bg_20">FF666666</color>            <!-- Light Grey -->
+    <color name="main_bg_12">FF777777</color>            <!-- Very Light Grey -->
+    <color name="main_bg_05">FF888888</color>            <!-- Almost White Grey -->
+    <color name="main_bg_02">FF999999</color>            <!-- Light Grey -->
+    
+    <!-- Text Colors -->
+    <color name="main_fg_100">FFFFFFFF</color>           <!-- Pure White Text -->
+    <color name="main_fg_90">FFE6E6E6</color>            <!-- Light Grey Text -->
+    <color name="main_fg_70">FFCCCCCC</color>            <!-- Medium Light Text -->
+    <color name="main_fg_50">FF999999</color>            <!-- Medium Text -->
+    <color name="main_fg_30">FF666666</color>            <!-- Dark Text -->
+    <color name="main_fg_12">FF333333</color>            <!-- Very Dark Text -->
+    
+    <!-- Accent Colors - Netflix Style -->
+    <color name="main_accent_100">FFE50914</color>       <!-- Netflix Red -->
+    <color name="main_accent_50">FF731507</color>        <!-- Dark Red -->
+    <color name="secondary_accent">FF0080FF</color>      <!-- Blue Accent -->
+    <color name="secondary_accent_50">FF004080</color>   <!-- Dark Blue -->
+    
+    <!-- UI Element Colors -->
+    <color name="dialog_bg">FF0A0A0A</color>             <!-- Dialog Background -->
+    <color name="dialog_header">FF000000</color>         <!-- Dialog Header -->
+    <color name="list_bg">FF000000</color>               <!-- List Background -->
+    <color name="list_item_focus">FF222222</color>       <!-- Focused Item -->
+    <color name="list_item_select">FFE50914</color>      <!-- Selected Item -->
+    
+    <!-- Button Colors -->
+    <color name="button_focus">FFE50914</color>          <!-- Focused Button -->
+    <color name="button_nofocus">FF333333</color>        <!-- Normal Button -->
+    <color name="button_disabled">FF111111</color>       <!-- Disabled Button -->
+    
+    <!-- Progress Bar Colors -->
+    <color name="progress_bg">FF333333</color>           <!-- Progress Background -->
+    <color name="progress_fg">FFE50914</color>           <!-- Progress Foreground -->
+    <color name="progress_cache">FF666666</color>        <!-- Progress Cache -->
+    
+    <!-- Special Effects -->
+    <color name="shadow">80000000</color>                <!-- Drop Shadow -->
+    <color name="overlay">80000000</color>               <!-- Overlay -->
+    <color name="transparent">00000000</color>           <!-- Transparent -->
+    
+    <!-- Status Colors -->
+    <color name="status_good">FF00FF00</color>           <!-- Good/Online -->
+    <color name="status_warning">FFFFFF00</color>        <!-- Warning -->
+    <color name="status_error">FFFF0000</color>          <!-- Error -->
+    
+    <!-- OSD Specific Colors -->
+    <color name="osd_bg">CC000000</color>                <!-- OSD Background -->
+    <color name="osd_controls_bg">FF111111</color>       <!-- OSD Controls Background -->
+    <color name="osd_button_focus">FFE50914</color>      <!-- OSD Button Focus -->
+    <color name="osd_text">FFFFFFFF</color>              <!-- OSD Text -->
+    <color name="osd_text_dim">FFCCCCCC</color>          <!-- OSD Dimmed Text -->
+</colors>
